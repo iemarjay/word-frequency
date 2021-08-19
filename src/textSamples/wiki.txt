@@ -1,0 +1,39 @@
+Wikimedia Foundation Software Engineer Programming Task
+
+Your task is to provide a frequency list of the words in this
+document, along with the code you've written to generate the list. Do
+not use anything beyond the standard libraries in your language of
+choice. You should be able to articulate your definition of a "word"
+and why it is appropriate to the task. You can use whatever
+programming language you like, as long as it isn’t overly obscure… and
+it isn't COBOL. :)
+
+Please do not leave any comments here on GitHub. Submit your code and
+your results as instructed by the recruiter. If you have technical
+difficulties with your submission, contact your recruiter.
+
+The purpose of the frequency list is to gain some insight into what
+words are most common in English, even though this document isn't
+really a sufficiently large sample to do so. Your program could be run
+on a larger text, so it should be sufficiently efficient that it could
+run on a one- to two-million-word corpus without too much trouble. You
+might also find it amusing to run the program on a plain text version
+of your resumé to see what bubbles to the top.
+
+Please note that we don't want you to just solve a problem. When
+writing your code, think of it as an application that you would want
+other people to use and collaborate on with others. We are interested
+in the decisions you make to make all of this easier - like argument
+handling, code structure, or tests.
+
+In order to give you more text to work on, this paragraph is about
+some WikiThings. “Wiki” is a Hawaiʻian word that means “quick”; a wiki
+is a type of website with editable content. Wikipedia is the global,
+free, multilingual internet encyclopedia. MediaWiki is a particular
+wiki engine developed for and used by Wikipedia and the other
+Wikimedia projects; it is free/libre open-source software. Wikimedia
+is the collective name for the Wikimedia movement, revolving around a
+group of inter-related wiki projects, including Wikipedia, Wiktionary,
+and others. The Wikimedia Foundation (WMF) is a non-profit
+organization—headquartered in San Francisco, U.S.A.—that runs the
+Wikimedia projects.
