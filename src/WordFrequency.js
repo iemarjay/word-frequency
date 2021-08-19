@@ -1,20 +1,36 @@
 export default class WordFrequency {
     constructor(text) {
         this.text = text;
+        this.beforeHook = (text) => {}
+        this.afterHook = (text) => {}
     }
 
     getText() {
         return this.text;
     }
 
-    removeUnnecessarySpecialCharacters() {
-        this.text = this.text.replace(/[^-'\w\s.]|(?<!\.[a-zA-Z])\.(?![a-zA-Z]\.)/g, '')
+    beforeTextTransformHook(callback) {
+        if (!callback instanceof Function) {
+            throw new Error('callback should be a function')
+        }
+
+        this.beforeHook = callback;
 
         return this;
     }
 
-    removeUnnecessarySpecialCharactersSkipAcronyms() {
-        this.text = this.text.replace(/[^'\w\s]/g, '')
+    afterTextTransformHook(callback) {
+        if (!callback instanceof Function) {
+            throw new Error('callback should be a function')
+        }
+
+        this.afterHook = callback;
+
+        return this;
+    }
+
+    removeUnnecessarySpecialCharactersSkipCharactersInSkipAcronymWords() {
+        this.text = this.text.replace(/[^-'\w\s.]|(?<!\.[a-zA-Z])\.(?![a-zA-Z]\.)/g, '')
 
         return this;
     }
@@ -30,12 +46,16 @@ export default class WordFrequency {
     }
 
     getFrequency() {
-        this.text = this.text.toLowerCase();
+        this.beforeHook(this.text);
 
-        const words = this
+        this.text = this.text
+            .toLowerCase()
             .breakWordJoiners()
-            .removeUnnecessarySpecialCharacters()
-            .toWordsArray();
+            .removeUnnecessarySpecialCharactersSkipCharactersInSkipAcronymWords();
+
+        this.afterHook(this.text);
+
+        const words = this.toWordsArray();
 
         return words.reduce((carry, item) => {
             if (!carry.hasOwnProperty(item)) {

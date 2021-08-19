@@ -16,14 +16,14 @@ it('Frequency can remove special characters except spaces, dashes, slashes and n
     const text = (new WordFrequency(
         'and others. The Wikimedia# Foundation (WMF) is a non-profit\norganization —headquartered in San( Francisco, U.S.A. —that runs the'
     ))
-        .removeUnnecessarySpecialCharacters()
+        .removeUnnecessarySpecialCharactersSkipCharactersInSkipAcronymWords()
         .getText();
 
     text.should.be.equal('and others The Wikimedia Foundation WMF is a non-profit\norganization headquartered in San Francisco U.S.A. that runs the')
 });
 
 it('Frequency remove special characters skips acronyms', function () {
-    const text = (new WordFrequency('a"# u.s.a. a /word')).removeUnnecessarySpecialCharacters().getText();
+    const text = (new WordFrequency('a"# u.s.a. a /word')).removeUnnecessarySpecialCharactersSkipCharactersInSkipAcronymWords().getText();
 
     text.should.equal('a u.s.a. a word')
 });
