@@ -3,9 +3,9 @@ import { resolve } from "path";
 import fs from "fs";
 
 const paths = {
-    long: 'src/textSamples/long.txt',
-    longer: 'src/textSamples/longer.txt',
-    wiki: 'src/textSamples/wiki.txt',
+    long: 'texts/long.txt',
+    longer: 'texts/longer.txt',
+    wiki: 'texts/wiki.txt',
 }
 
 const argument = process.argv[2] || 'wiki';
@@ -24,3 +24,14 @@ console.log(
         fs.readFileSync(path, "utf-8")
     ).getFrequency()
 )
+
+// const f = new WordFrequency(
+//     fs.readFileSync(path, "utf-8")
+// ).getFrequency();
+//
+// fs.writeFile(
+//     resolve('frequency.txt'),
+//     Object.keys(f).reduce((carry, key) => {
+//         return `${carry}${key}: ${f[key]}<br/>`
+//     }, ''),
+//     (error) => console.log(error));
